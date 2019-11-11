@@ -1,0 +1,6 @@
+This program will take all files in the download directory (Change as needed) and categorize them into subfolders. In its current
+state, the program will need to be initialized first, then the files will need to be added into the downloads folder for them to be
+categorized. 
+
+Future developments: write an rc.local file that will initialize the script on startup so it is always watching for changes in the 
+directory. This will negate the need to run the script and then put the files in the download file.
