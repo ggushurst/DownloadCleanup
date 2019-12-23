@@ -1,6 +1,74 @@
-This program will take all files in the download directory (Change as needed) and categorize them into subfolders. In its current
-state, the program will need to be initialized first, then the files will need to be added into the downloads folder for them to be
-categorized. 
+This program will "keep watch" over the downloads folder and move any incomming files to categorized folders. I.E. a downloaded pdf file will be sent to the pdf folder that is created in the myDocuments folder.
 
-Future developments: write an rc.local file that will initialize the script on startup so it is always watching for changes in the 
-directory. This will negate the need to run the script and then put the files in the download file.
+To use this program, download the following files and use Python 3:
+1. DownloadCleanup.service
+2. Download_Cleanup
+3. Use python 3 and in the termnial (cntrl + alt + t) and input: "pip install watchdog" (This is a necessary python package for the script)
+
+If you would like to have the category folders automatically created, open the terminal (cntrl + alt + t) and run the following command in your terminal:
+
+Recommended:
+mkdir Documents/{PDF_Files, Deb_Files, Image_Files, Text_Files, Spreadsheet_Files, Random_Files}
+
+Abstract:
+mkdir <Parent Folder>/{<folder>,<folder>...<folder>}
+
+If you would like this program to run as a service at startup:
+
+Place the DownloadCleanup.service folder in your system folder. To get to system open terminal (cntrl + alt + t) and enter the following command:
+
+Automatically:
+
+Download the file and move it using mv:
+1. open terminal (cntrl + alt + t) and input "cd Downloads"
+2. input "mv DownloadCleanup.serice" /etc/systemd/system/
+
+Finally:
+
+Download and move the DownloadCleanup file to a permanent location (I recommend a folder in your documents folder)
+
+open terminal (cntrl + alt + t)
+mkdir Documents/DownloadCleanupScript
+cd Downloads
+mv DownloadCleanup /home/<user>/Documents/DownloadCleanupScript
+
+once you have moved the filed, navigate back to the system folder:
+
+cd /etc/systemd/system
+
+edit the service script
+
+sudo nano DownloadCleaup.service
+
+Change the user to your user
+User=<user>
+
+Change the ExecStart to your directory that you put the script in
+
+ExecStart=/usr/bin/python3 /<directory of script>/DownloadCleanup
+
+####################################################################################
+
+To add further categorizing directories:
+
+1. Add another elif statement
+
+            elif filename.endswith(('.FileTpye'....'.FileType')):
+                src = folder_to_track + "/" + filename
+                new_destination_name = destination_name + "/" + filename
+                os.rename(src, new_destination_name)
+                
+                
+2. Add another destination name above the others at the bottom of the script:
+
+new_destination = "/home/greg/Documents/new_folder"
+
+####################################################################################
+
+Please contact me with any questions or comments: ggushurst@gmail.com
+
+Thank you and enjoy your automated download cleanup :)
+
+
+
+
