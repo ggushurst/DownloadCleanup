@@ -1,0 +1,12 @@
+[Unit]
+Description=Download Cleanup Service
+After=multi-user.target
+
+[Service]
+Type=idle
+User=greg
+ExecStart=/usr/bin/python3 /home/greg/PycharmProjects/DownloadCleanup/Download_Cleanup
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
