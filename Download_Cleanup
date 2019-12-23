@@ -4,20 +4,10 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-
+# Creating the myHandler class that contains a function to watch the folder and move new files to the destination folders defined below
 class MyHandler(FileSystemEventHandler):
     i = 1
     def on_modified(self, event):
-        # new_name = "new_file_" + str(self.i) + ".txt"
-        # for filename in os.listdir(folder_to_track):
-        #     file_exists = os.path.isfile(folder_destination + "/" + new_name)
-        #     while file_exists:
-        #         self.i += 1
-        #         new_name = "new_file_" + str(self.i) + ".txt"
-        #         file_exists = os.path.isfile(folder_destination + "/" + new_name)
-        #     src = folder_to_track + "/" + filename
-        #     new_destination = folder_destination + "/" + new_name
-        #     os.rename(src, new_destination)
         for filename in os.listdir(folder_to_track):
             if filename.endswith('.pdf'):
                 src = folder_to_track + "/" + filename
@@ -45,14 +35,16 @@ class MyHandler(FileSystemEventHandler):
                 os.rename(src, new_random_destination)
 
             
-
+# Defining the folder destinations
 folder_to_track = "/home/greg/Downloads"
-pdf_destination = "/home/greg/Downloads/PDF_Files"
-deb_destination = "/home/greg/Downloads/Deb_Files"
-Image_destination = "/home/greg/Downloads/Image_Files"
-Text_destination = "/home/greg/Downloads/Text_Files"
-Spreadsheet_destination = "/home/greg/Downloads/Spreadsheet_Files"
-Random_destination = "/home/greg/Downloads/Random_Files"
+pdf_destination = "/home/greg/Documents/PDF_Files"
+deb_destination = "/home/greg/Documents/Deb_Files"
+Image_destination = "/home/greg/Documents/Image_Files"
+Text_destination = "/home/greg/Documents/Text_Files"
+Spreadsheet_destination = "/home/greg/Documents/Spreadsheet_Files"
+Random_destination = "/home/greg/Documents/Random_Files"
+
+# Initializing the handler class
 event_handler = MyHandler()
 observer = Observer()
 observer.schedule(event_handler, folder_to_track, recursive=True)
