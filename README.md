@@ -5,10 +5,9 @@ Automate file categorization and keep your download folder clutter free! (**Linu
 
 1. Download the zip file
 
-2. Move the Download_Cleanup script to a permanent location ( I recommend a folder in your documents folder):
-    > **Terminal**: mkdir Documents/DownloadCleanupScript
-    mv Download_Cleanup 
-    **Terminal:** /home/<user>/Documents/DownloadCleanupScript/
+2. Move the Download_Cleanup script to a permanent location (I recommend a folder in your documents folder):
+    > **Terminal**: mkdir Documents/DownloadCleanupScript  
+    **Terminal:** mv Download_Cleanup /home/'user'/Documents/DownloadCleanupScript/
     (***Remember where this location is***)
 
 3. Move the DownloadCleanup.service file to the system folder: 
