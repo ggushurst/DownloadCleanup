@@ -16,7 +16,7 @@ Automate file categorization and keep your download folder clutter free! (**Linu
     Edit the DownloadCleanup.service to indicate script location and user
     **Terminal:** sudo nano DownloadCleanup.service
     Change user to your user (***User='user'***)
-    Change ExecStart to the directory of your script (***ExecStart=/usr/bin/python3 /<directory of script>/DownloadCleanup***)
+    Change ExecStart to the directory of your script (***ExecStart=/usr/bin/python3 /'directory of script'/DownloadCleanup***)
     
 4. Create folders for script to send files to:
     > mkdir Documents/{PDF_Files, DEB_Files, Image_Files, Text_Files, Spreadsheet_Files, Random_Files}
@@ -28,7 +28,7 @@ Automate file categorization and keep your download folder clutter free! (**Linu
         new_destination_name = destination_name + "/" + filename
         os.rename(src, new_destination_name)
 2. Add another destination folder above the others at the bottom of the script:
-    > <new_destination> = "/home/<user>/Documents/new_folder"
+    > 'new_destination' = "/home/'user'/Documents/new_folder"
         
 #### Any questions please contact me @:
 ***ggushurst@gmail.com***
