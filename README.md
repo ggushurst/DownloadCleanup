@@ -3,7 +3,8 @@ Automate file categorization and keep your download folder clutter free! (**Linu
 
 ### How to use:
 
-1.Download the zip file
+1. Download the zip file
+
 2. Move the Download_Cleanup script to a permanent location ( I recommend a folder in your documents folder):
     > **Terminal**: mkdir Documents/DownloadCleanupScript
     mv Download_Cleanup 
@@ -14,7 +15,7 @@ Automate file categorization and keep your download folder clutter free! (**Linu
     > **Terminal:** mv DownloadCleanup.service /etc/systend/system/ 
     Edit the DownloadCleanup.service to indicate script location and user
     **Terminal:** sudo nano DownloadCleanup.service
-    Change user to your user (***User=<user>***)
+    Change user to your user (***User='user'***)
     Change ExecStart to the directory of your script (***ExecStart=/usr/bin/python3 /<directory of script>/DownloadCleanup***)
     
 4. Create folders for script to send files to:
